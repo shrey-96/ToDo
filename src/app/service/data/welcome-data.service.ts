@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API_URL } from './../../app.constants'
 
 export class Bean {
   constructor(public message: string) {
@@ -17,21 +18,6 @@ export class WelcomeDataService {
   ) { }
 
   executeBeanService(name: string) {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders ( {
-      Authorization: basicAuthHeaderString
-
-    })
-
-    return this.http.get<Bean>(`http://localhost:8080/bean/${name}`,
-    {headers});
-  }
-
-  createBasicAuthenticationHttpHeader() {
-    let username = 'user'
-    let password = 'password'
-    let basicAuthHeaderString = 'Basic ' + window.btoa(`${username}:${password}`);
-
-    return basicAuthHeaderString;
+    return this.http.get<Bean>(`${API_URL}/bean/${name}`)
   }
 }
