@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/list-todos/list-todos.component';
 
@@ -12,7 +12,7 @@ export class TodoDataService {
   ) { }
 
   retrieveAllTodos(username: string) {
-    return this.http.get<Todo[]>(`http://localhost:8080//users/${username}/todos`);
+      return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
     //console.log("Testing bean...") 
   }
 
