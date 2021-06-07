@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API_URL } from './../../app.constants'
+import { JPA_API_URL } from './../../app.constants'
 
 export class Bean {
   constructor(public message: string) {
@@ -18,6 +19,6 @@ export class WelcomeDataService {
   ) { }
 
   executeBeanService(name: string) {
-    return this.http.get<Bean>(`${API_URL}/bean/${name}`)
+    return this.http.get<Bean>(`${JPA_API_URL}/bean/${name}`)
   }
 }

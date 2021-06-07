@@ -46,6 +46,7 @@ export class ListTodosComponent implements OnInit {
     this.todoService.deleteTodoItem('shrey',id).subscribe (
       response => {
         this.message = `Delete Successful for id #${id}`
+        //this.router.navigate(['todos', id])
         this.refreshList();
       }
     )
